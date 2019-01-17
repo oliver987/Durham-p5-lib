@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Particle Attractor</title>
+    <h1>Particle Attractor</h1>
+    <h3>Changeable Properties:</h3>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="Prog_Summative.js"></script>
+    <script src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+
+    .slidecontainer {
+        width: 100%;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+<div class="slidecontainer">
+    <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
+    <p>Radius Size: <span id="demo"></span></p>
+</div>
+<div class="slidecontainer">
+    <input type="range" min="0" max="2000" value="1000" class="slider" id="myRange2">
+    <p>Particle Count: <span id="demo2"></span></p>
+</div>
+<div class="slidecontainer">
+    <input type="range" min="1" max="50" value="10" class="slider" id="myRange3">
+    <p>Magnetism Value: <span id="demo3"></span></p>
+</div>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            simulation.radius = Number(this.value);
+        };
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var slider = document.getElementById("myRange2");
+        var output = document.getElementById("demo2");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            simulation.particlecount = Number(this.value);
+        };
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var slider = document.getElementById("myRange3");
+        var output = document.getElementById("demo3");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            simulation.magnetism = Number(this.value);
+        };
+    });
+
+
+
+</script>
+
+</body>
+
+</html>
